@@ -8,11 +8,13 @@
 
 import UIKit
 import SocketIO
-
+import Foundation
 class ViewController: UIViewController {
+    let manager = SocketManager(socketURL: URL(string: "http://localhost:3002")!, config: [.log(true), .compress])
     override func viewDidLoad() {
         super.viewDidLoad()
-        sockets()
+        self.addHandlers()
+        self.manager.defaultSocket.connect()
         // Do any additional setup after loading the view.
     }
     @IBOutlet weak var messageField: UITextField!
@@ -23,18 +25,17 @@ class ViewController: UIViewController {
         messageField.text = ""
     }
     
-    func sockets() {
-        let manager = SocketManager(socketURL: URL(string: "http://localhost:3002")!, config: [.log(true), .compress])
-        let socket = manager.defaultSocket
-        
-        socket.on(clientEvent: .connect) {data, ack in
-            print("socket connected")
+    
+    func addHandlers() {
+        // Our socket handlers go here
+        self.manager.defaultSocket.onAny{
+            print("Got event: \($0.event), with items: \($0.items)")
         }
         
-        socket.connect()
+        self.manager.defaultSocket.on("test-message") {[weak self] data, ack in
+            print(data)
+        }
+
     }
-    
-    
-    
 }
 

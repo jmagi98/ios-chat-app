@@ -8,3 +8,11 @@
 
 import Foundation
 
+class MessageSocket {
+    init() {
+        
+    }
+    
+    
+    
+}
