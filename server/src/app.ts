@@ -6,5 +6,6 @@ io.on('connection', (socket: any)  => {
     socket.emit('test-message', 'Successful Connection Custom Event')
     socket.on('new-message', (message: String) => {
         console.log(message)
+        socket.broadcast.emit('incoming-message', message)
     })
 })  

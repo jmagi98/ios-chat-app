@@ -15,26 +15,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6U1-81-1wf">
-                                <rect key="frame" x="52" y="78" width="311" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" keyboardDismissMode="onDrag" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tu-pu-cNE">
+                                <rect key="frame" x="10" y="76" width="393" height="809"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6U1-81-1wf">
+                                <rect key="frame" x="63" y="766" width="233" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="233" id="scF-Zu-zRX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhN-Ox-KI5">
-                                <rect key="frame" x="184" y="134" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhN-Ox-KI5">
+                                <rect key="frame" x="304" y="770" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="onSend:" destination="BYZ-38-t0r" eventType="touchUpInside" id="peT-sb-X8J"/>
+                                    <action selector="onSend:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tgp-h4-djx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4tu-pu-cNE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EXQ-Jw-EAh"/>
+                            <constraint firstItem="UhN-Ox-KI5" firstAttribute="leading" secondItem="6U1-81-1wf" secondAttribute="trailing" constant="8" id="FbW-FE-LKy"/>
+                            <constraint firstItem="4tu-pu-cNE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="I7r-Nw-OOd"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="4tu-pu-cNE" secondAttribute="bottom" constant="-23" id="aE2-gr-gvp"/>
+                            <constraint firstItem="6U1-81-1wf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="722" id="cJq-8r-lQi"/>
+                            <constraint firstItem="6U1-81-1wf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="cz6-zs-oan"/>
+                            <constraint firstItem="4tu-pu-cNE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ea0-BI-iZt"/>
+                            <constraint firstItem="UhN-Ox-KI5" firstAttribute="bottom" secondItem="6U1-81-1wf" secondAttribute="bottom" id="nP7-JG-1rs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="messageField" destination="6U1-81-1wf" id="Y4p-mb-bJZ"/>
+                        <outlet property="messageField" destination="6U1-81-1wf" id="QTT-8P-iWQ"/>
+                        <outlet property="messages" destination="4tu-pu-cNE" id="4ZZ-tp-rVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
