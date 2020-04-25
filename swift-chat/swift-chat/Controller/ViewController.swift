@@ -23,8 +23,13 @@ class ViewController: UIViewController {
         var text: String? =  messageField.text
         print(text)
         messageField.text = ""
+        sendMessage(message: text!)
     }
     
+    
+    func sendMessage(message: String) {
+        self.manager.defaultSocket.emit("new-message", message)
+    }
     
     func addHandlers() {
         // Our socket handlers go here
